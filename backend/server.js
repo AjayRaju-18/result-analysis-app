@@ -55,15 +55,17 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`\n🚀 Server is running on port ${PORT}`);
-  console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
-  console.log(`\nEndpoints:`);
-  console.log(`  GET  /health - Health check`);
-  console.log(`  GET  /api/subjects - Get subjects list`);
-  console.log(`  POST /api/check-duplicate - Check duplicate register number`);
-  console.log(`  POST /api/submit - Submit form data\n`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Server is running on port ${PORT}`);
+    console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
+    console.log(`\nEndpoints:`);
+    console.log(`  GET  /health - Health check`);
+    console.log(`  GET  /api/subjects - Get subjects list`);
+    console.log(`  POST /api/check-duplicate - Check duplicate register number`);
+    console.log(`  POST /api/submit - Submit form data\n`);
+  });
+}
 
 export default app;
