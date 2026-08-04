@@ -12,14 +12,27 @@ const __dirname = path.dirname(__filename);
  */
 export const getGoogleSheetsClient = () => {
   try {
-    // Load service account credentials
-    const credentialsPath = path.join(__dirname, '..', 'credentials.json');
-    
-    if (!fs.existsSync(credentialsPath)) {
-      throw new Error('credentials.json file not found. Please add your Google Service Account credentials.');
-    }
+    let credentials;
 
-    const credentials = JSON.parse(fs.readFileSync(credentialsPath, 'utf-8'));
+    // Check for Base64 encoded credentials (Vercel)
+    if (process.env.GOOGLE_CREDENTIALS_BASE64) {
+      const decoded = Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, 'base64').toString('utf-8');
+      credentials = JSON.parse(decoded);
+    }
+    // Check for JSON string credentials (Vercel alternative)
+    else if (process.env.GOOGLE_CREDENTIALS) {
+      credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+    }
+    // Check for local credentials file (local development)
+    else {
+      const credentialsPath = path.join(__dirname, '..', 'credentials.json');
+      
+      if (!fs.existsSync(credentialsPath)) {
+        throw new Error('credentials.json file not found and no GOOGLE_CREDENTIALS environment variable set.');
+      }
+
+      credentials = JSON.parse(fs.readFileSync(credentialsPath, 'utf-8'));
+    }
 
     // Create auth client
     const auth = new google.auth.GoogleAuth({

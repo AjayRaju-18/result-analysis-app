@@ -76,8 +76,9 @@ Result Analysis/
 ### Quick Links
 
 - **📘 [Setup Guide](./SETUP_GUIDE.md)** - Get started locally in 5 minutes
-- **🚀 [Deployment Guide](./DEPLOYMENT_GUIDE.md)** - Deploy to production (detailed)
-- **⚡ [Quick Deploy](./QUICK_DEPLOY.md)** - Deploy in 10 minutes (fast track)
+- **🚀 [Vercel Deploy](./VERCEL_DEPLOY.md)** - ⭐ EASIEST! Deploy both frontend & backend in 5 min
+- **📦 [Deployment Guide](./DEPLOYMENT_GUIDE.md)** - Deploy to Netlify + Render (detailed)
+- **⚡ [Quick Deploy](./QUICK_DEPLOY.md)** - Deploy to Netlify + Render (fast track)
 
 ### Backend Setup
 
