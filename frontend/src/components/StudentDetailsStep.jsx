@@ -111,6 +111,7 @@ const StudentDetailsStep = () => {
       className="w-full"
     >
       <div className="text-center mb-8">
+        <p className="text-sm text-gray-600 mb-2">Department of Mechanical Engineering</p>
         <h2 className="text-3xl font-bold text-gray-800 mb-2">
           6th Semester Result Analysis
         </h2>
@@ -143,7 +144,7 @@ const StudentDetailsStep = () => {
                   : 'border-gray-300'
               }
             `}
-            placeholder="e.g., 22MPC001"
+            placeholder="e.g., 2303717711421006"
             aria-invalid={touched.regNo && !!errors.regNo}
             aria-describedby={errors.regNo ? 'regNo-error' : undefined}
           />
@@ -193,7 +194,7 @@ const StudentDetailsStep = () => {
                   : 'border-gray-300'
               }
             `}
-            placeholder="e.g., John Doe"
+            placeholder="e.g., Ajay Raju MJ"
             aria-invalid={touched.name && !!errors.name}
             aria-describedby={errors.name ? 'name-error' : undefined}
           />

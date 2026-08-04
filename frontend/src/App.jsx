@@ -32,6 +32,7 @@ function App() {
         {/* Footer */}
         <div className="mt-6 text-center text-sm text-gray-600">
           <p>6th Semester Result Analysis Form</p>
+          <p className="mt-1">Created by Ajay Raju MJ</p>
           <p className="mt-1">© 2026 All rights reserved</p>
         </div>
       </div>
