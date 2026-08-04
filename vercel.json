@@ -4,8 +4,24 @@
   "installCommand": "npm install --prefix backend",
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
+      "source": "/api/health",
+      "destination": "/api/health"
+    },
+    {
+      "source": "/api/subjects",
+      "destination": "/api/subjects"
+    },
+    {
+      "source": "/api/check-duplicate",
+      "destination": "/api/check-duplicate"
+    },
+    {
+      "source": "/api/submit",
+      "destination": "/api/submit"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
