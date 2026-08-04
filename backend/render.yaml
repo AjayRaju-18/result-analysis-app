@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: result-analysis-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: GOOGLE_SHEET_ID
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
